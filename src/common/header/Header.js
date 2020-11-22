@@ -6,7 +6,11 @@ import Modal from 'react-modal';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { TextareaAutosize } from '@material-ui/core';
-
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
 
 //Styles//
 
@@ -17,13 +21,25 @@ const customStyles={
         Right:'auto',
         bottom:'auto',
         marginRight:'-50%',
-        transform:'translates(-50%,50%)'
+        transform:'translate(-50%,-50%)'
 
 
     }
 
 
 }
+//TabContainer as a stateless functional component
+const TabContainer=function(props){
+    return(
+      <Typography component="div" style={{padding:0}}>
+             {props.children}
+
+      </Typography>
+
+    );
+}
+
+
 
 
 class Header extends Component {
@@ -69,6 +85,23 @@ class Header extends Component {
                     <Tab label="Signup"/>
 
                 </Tabs>
+                <TabContainer>
+                <FormControl required>
+                    <InputLabel html for="Contactno">
+
+                    </InputLabel>
+                    <Input id="Contactno" type="text"/>
+
+                </FormControl>
+                <FormControl required>
+                    <InputLabel html for="password">
+
+                    </InputLabel>
+                    <Input id="password" type="password"/>
+
+                </FormControl>
+                
+                </TabContainer>
             </div>
         )
     }

@@ -4,6 +4,7 @@ import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './screens/home/Home';
+import 'typeface-roboto';
 
 ReactDOM.render(<Home/>, document.getElementById('root')
 );
