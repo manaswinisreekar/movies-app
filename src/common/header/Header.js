@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
+import propTypes from 'prop-types';
 
 //Styles//
 
@@ -31,12 +32,15 @@ const customStyles={
 //TabContainer as a stateless functional component
 const TabContainer=function(props){
     return(
-      <Typography component="div" style={{padding:0}}>
+      <Typography component="div" style={{padding:0, textAlign:"center"}}>
              {props.children}
 
       </Typography>
 
     );
+}
+TabContainer.propTypes={
+    children:propTypes.node.isRequired
 }
 
 
@@ -80,28 +84,33 @@ class Header extends Component {
                  style={customStyles}>
 
                 </Modal>
-                <Tabs value={this.state.value} onChange={this.tabChangeHandler}>
+                <Tabs className="tabs" value={this.state.value} onChange={this.tabChangeHandler}>
                     <Tab label="Login"/>
                     <Tab label="Signup"/>
 
                 </Tabs>
+                {this.state.value===0&&
+
                 <TabContainer>
                 <FormControl required>
-                    <InputLabel html for="Contactno">
+                    <InputLabel html for="username">
 
                     </InputLabel>
-                    <Input id="Contactno" type="text"/>
+                    <Input id="username" type="text"/>
 
-                </FormControl>
+                </FormControl><br/><br/>
                 <FormControl required>
                     <InputLabel html for="password">
 
                     </InputLabel>
                     <Input id="password" type="password"/>
 
-                </FormControl>
+                </FormControl><br/><br/>
+                <Button variant="contained" color="primary">Login</Button>
                 
                 </TabContainer>
+
+                }
             </div>
         )
     }
